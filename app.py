@@ -45,7 +45,7 @@ def snap():
     print(snaps_collection.find_one({"url":url}))
     return url
 
-# api to get rom
+# api to get information about an article
 @app.route('/get_snaps', methods=['GET'])
 def get_snaps():
     url = urllib.parse.quote(urllib.parse.urlparse(request.form['url']).path)
