@@ -46,9 +46,9 @@ def snap():
         new_num_snaps = num_snaps
         snaps_collection.insert_one({"url":url, "num_snaps":new_num_snaps})
     print(snaps_collection.find_one({"url":url}))
-    return new_num_snaps
+    return str(new_num_snaps)
 
-# api to get information about an article
+# api to get information about an article - DEPRECATED - JUST USE /snap with 0 for num_snaps
 @app.route('/get_snaps', methods=['GET'])
 @cross_origin()
 def get_snaps():
