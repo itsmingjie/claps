@@ -55,4 +55,4 @@ def get_snaps():
     return snaps_collection.find_one({"url":url})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
