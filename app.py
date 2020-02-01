@@ -10,12 +10,12 @@ load_dotenv()
 
 # thanks literally everyone for not making nodejs style module support
 DATABASE_NAME = "snaps"
-client = MongoClient(os.environ["MONGODB_URI"])
+client = MongoClient()
 db = client[DATABASE_NAME]
 snaps_collection = db.snaps
 def __init__():
     try:
-        client = MongoClient(os.environ["MONGODB_URI"])
+        client = MongoClient()
         db = client[DATABASE_NAME]
         snaps_collection = db.snaps
     except:
