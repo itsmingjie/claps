@@ -35,18 +35,16 @@ def snap():
     num_snaps = int(request.form['num_snaps'])
     # check if document exsists already
     if snaps_collection.find_one({"url":url}) != None:
-        new_num_snaps = snaps_collection.find_one({"url":url})["num_snaps"] + num_snaps
-        snaps_collection.find_one_and_update(
-            {"url":url},
-            {"$set":
-                {"num_snaps": new_num_snaps}
-            },upsert=True
+        # increment the variable
+        new_num_snaps = snaps_collection.update({"url":url},
+            {"$inc":
+                {"num_snaps": num_snaps}
+            }
         )
     else:
         new_num_snaps = num_snaps
         snaps_collection.insert_one({"url":url, "num_snaps":new_num_snaps})
-    print(snaps_collection.find_one({"url":url}))
-    return str(new_num_snaps)
+    return str(snaps_collection.find_one({"url":url}.num_snaps))
 
 # api to get information about an article - DEPRECATED - JUST USE /snap with 0 for num_snaps
 @app.route('/get_snaps', methods=['GET'])
