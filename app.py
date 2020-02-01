@@ -8,7 +8,7 @@ load_dotenv()
 
 # thanks literally everyone for not making nodejs style module support
 DATABASE_NAME = "snaps"
-client = MongoClient(process.env.MONGODB_URI)
+client = MongoClient(os.getenv["MONGODB_URI"])
 db = client[DATABASE_NAME]
 snaps_collection = db.snaps
 def __init__():
