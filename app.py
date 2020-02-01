@@ -44,7 +44,8 @@ def snap():
     else:
         new_num_snaps = num_snaps
         snaps_collection.insert_one({"url":url, "num_snaps":new_num_snaps})
-    return str(snaps_collection.find_one({"url":url}))
+    return_value = str(snaps_collection.find_one({"url":url})["num_snaps"])
+    return return_value
 
 # api to get information about an article - DEPRECATED - JUST USE /snap with 0 for num_snaps
 @app.route('/get_snaps', methods=['GET'])
