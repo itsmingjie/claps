@@ -1,0 +1,4 @@
+flask-api
+psycopg2-binary
+python-dotenv
+pymongo
