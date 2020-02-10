@@ -1,5 +1,7 @@
 # Snap
 
+Repo Archived. New version is written in Node.js: https://github.com/executebig/snaps
+
 Medium's "Claps", but self-hosted as-a-service. Code is not factored well... made at a hackathon. Will update in the coming weeks!
 
 # API
